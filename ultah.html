@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Selamat Ulang Tahun, Sayang!</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 50px;
+            color: #333;
+            transition: all 0.6s ease;
+        }
+
+        /* Halaman awal (form sandi) */
+        #halaman-sandi {
+            display: block;
+        }
+
+        #halaman-ucapan {
+            display: none;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #e91e63;
+        }
+
+        p {
+            font-size: 1.3em;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .heart {
+            color: red;
+            font-size: 2em;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            display: inline-block;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        audio {
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            width: 200px;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #e91e63;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #c2185b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Halaman Sandi -->
+    <div id="halaman-sandi">
+        <h1>Masukkan Sandi Jadian 💕</h1>
+        <input type="password" id="sandi" placeholder="Tulis sandi di sini...">
+        <br>
+        <button onclick="cekSandi()">Buka Ucapan 🎁</button>
+        <p id="pesan-error" style="color:red; display:none;">Sandi salah, coba lagi ya 😅</p>
+    </div>
+
+    <!-- Halaman Ucapan -->
+    <div id="halaman-ucapan">
+        <div class="card">
+            <h1>Selamat Ulang Tahun, Sayangku 🎉</h1>
+            <p>Hari ini adalah hari yang sangat spesial dimana kamu dilahirkan di dunia ini. Aku sangat bersyukur bisa menjadi bagian dari hidupmu sayang. 💖</p>
+            <p>Doa terbaik untukmu, maaf tidak bisa merayakan langsung dihadapanmu, tapi segenap hati mengucapkan selamat bertambah usia sayang doa terbaik untuk kamu, jaga diri baik"ya kamu disana tetap dengan satu tujuan baik dan niat yang baik, sekali lagi happy britday sayangku calon istri aku love you 💖</p>
+            <p class="heart">❤️ Aku sayang kamu ❤️</p>
+
+            <img src="foto.jpg" alt="Foto berdua">
+            <img src="foto2.jpg" alt="Foto berdua">
+
+
+            <!-- Musik -->
+            <audio id="musik" loop>
+                <source src="lagu.mp3" type="audio/mpeg">
+                Browser kamu tidak mendukung pemutar audio.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        const sandiBenar = "01122024"; // 👉 GANTI dengan sandi jadian kamu
+
+        function cekSandi() {
+            const input = document.getElementById('sandi').value;
+            const error = document.getElementById('pesan-error');
+
+            if (input === sandiBenar) {
+                document.getElementById('halaman-sandi').style.display = 'none';
+                document.getElementById('halaman-ucapan').style.display = 'block';
+                document.body.style.background = "linear-gradient(to right, #ffecd2, #fcb69f)";
+                document.getElementById('musik').play();
+            } else {
+                error.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
